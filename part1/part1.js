@@ -81,6 +81,8 @@ async function insertTestData(){
     // If there's an error inserting test data, log it but don't crash the server
     console.error('Couldnt insert test data:', err.message);
   }
+
+const applications 
 }
 
 // GET /api/dogs
