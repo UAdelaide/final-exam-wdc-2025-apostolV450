@@ -18,17 +18,21 @@ const db = mysql.createPool({
 
 //helper function to run SQL queries
 function queryDB(sql, params = []) {
-  return new Promise((resolve, reject) => {
-    db.query(sql, params, (err, results) => {
+  return new Promise((resolve, reject) =>
+     {
+    db.query(sql, params, (err, results) =>
+      {
       if (err) return reject(err); // error occurred during query
       resolve(results); // successful query
     });
   });
+
 }
 
 // This function inserts sample data into the database when the server starts
 // Im just doing what I saw in the starthere app.js file
-async function insertTestData() {
+async function insertTestData()
+{
   try {
     // Only add test users if there aren't any yet
     const users = await queryDB('SELECT COUNT(*) AS count FROM Users');
@@ -41,6 +45,7 @@ async function insertTestData() {
         ('daviddog', 'david@example.com', 'hashed000', 'walker'),
         ('emilyowner', 'emily@example.com', 'hashed999', 'owner')
       `);
+
     }
 
     // Same logic for the Dogs table
