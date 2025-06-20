@@ -1,5 +1,8 @@
 // This is the main server file for the Dog Walk Service API
 // It sets up the Express app, connects to the MySQL database,
+// and defines the API endpoints for managing dogs, walk requests, and walkers.
+// It also includes a function to insert test data into the database when the server starts.
+
 const express = require('express');
 const mysql = require('mysql');
 const app = express(); // create our Express app
@@ -10,6 +13,7 @@ const db = mysql.createPool({
   host: 'localhost',
   user: 'root',
   database: 'DogWalkService'
+
 });
 
 //helper function to run SQL queries
