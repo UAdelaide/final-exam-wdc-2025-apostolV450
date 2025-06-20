@@ -50,6 +50,7 @@ async function insertTestData() {
     }
 
     // Insert walk requests only if there are none yet
+    // This ensures we don't duplicate test data every time the server starts
     const walkRequests = await queryDB('SELECT COUNT(*) AS count FROM WalkRequests');
     if (walkRequests[0].count === 0) {
       await queryDB(`
@@ -63,7 +64,7 @@ async function insertTestData() {
     }
 
   } catch (err) {
-    // This will catch anything that goes wrong during the insert process
+    // If there's an error inserting test data, log it but don't crash the server
     console.error('Couldnt insert test data:', err.message);
   }
 }
