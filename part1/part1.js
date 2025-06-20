@@ -21,6 +21,7 @@ function queryDB(sql, params = []) {
 }
 
 // This function inserts sample data into the database when the server starts
+// Im just doing what 
 async function insertTestData() {
   try {
     // Only add test users if there aren't any yet
@@ -37,6 +38,7 @@ async function insertTestData() {
     }
 
     // Same logic for the Dogs table
+    // Only insert dogs if there are none yet
     const dogs = await queryDB('SELECT COUNT(*) AS count FROM Dogs');
     if (dogs[0].count === 0) {
       await queryDB(`
