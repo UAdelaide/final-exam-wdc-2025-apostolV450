@@ -77,10 +77,7 @@ async function insertTestData(){
 
     }
 
-  } catch (err) {
-    // If there's an error inserting test data, log it but don't crash the server
-    console.error('Couldnt insert test data:', err.message);
-  }
+
 
  const applications = await queryDB('SELECT COUNT(*) AS count FROM WalkApplications');
     if (applications[0].count === 0) {
