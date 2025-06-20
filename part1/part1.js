@@ -93,7 +93,7 @@ const applications = await queryDB('SELECT COUNT(*) AS count FROM WalkApplicatio
            (SELECT user_id FROM Users WHERE username = 'bobwalker'), NOW(), 'accepted')
 
 
-      ')
+      ');
 }
 
 // GET /api/dogs
