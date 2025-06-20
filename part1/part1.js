@@ -113,7 +113,10 @@ async function insertTestData(){
           )
       `);
     }
-  }catch
+  }catch (err) {
+    console.error('Error inserting test data:', err.message);
+  }
+}
 
 
 // GET /api/dogs
