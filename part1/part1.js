@@ -135,5 +135,5 @@ insertTestData().then(() => {
     console.log(`Server at http://localhost:${PORT}`);
   }
 );
-})
-;
+
+});
