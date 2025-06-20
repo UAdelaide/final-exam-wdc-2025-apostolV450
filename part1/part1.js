@@ -113,6 +113,7 @@ async function insertTestData(){
           )
       `);
     }
+  }catch
 
 
 // GET /api/dogs
