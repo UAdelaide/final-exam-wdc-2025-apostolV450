@@ -82,7 +82,8 @@ async function insertTestData(){
     console.error('Couldnt insert test data:', err.message);
   }
 
-const applications 
+const applications = await queryDB('SELECT COUNT(*) AS count FROM WalkApplications');
+  if (applications[0].count === 0) {
 }
 
 // GET /api/dogs
