@@ -91,7 +91,10 @@ async function insertTestData(){
           ((SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Daisy')),
            (SELECT user_id FROM Users WHERE username = 'bobwalker'), NOW(), 'accepted')
       `);
-      
+      await queryDB(`
+        UPDATE WalkRequests
+        SET status = 'completed'
+        
 
 // GET /api/dogs
 // This route gives us a list of all the dogs and their owners
