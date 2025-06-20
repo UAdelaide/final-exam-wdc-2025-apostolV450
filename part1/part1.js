@@ -128,7 +128,7 @@ app.get('/api/walkers/summary', async (req, res) => {
   }
 });
 
-// Start the server only *after* we’ve inserted test data
+// starts the s
 const PORT = process.env.PORT || 8080;
 insertTestData().then(() => {
   app.listen(PORT, () => {
