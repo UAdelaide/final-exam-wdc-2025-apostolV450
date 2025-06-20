@@ -128,10 +128,12 @@ app.get('/api/walkers/summary', async (req, res) => {
   }
 });
 
-// starts the s
+// starts the server and inserts test data
 const PORT = process.env.PORT || 8080;
 insertTestData().then(() => {
   app.listen(PORT, () => {
-    console.log(`🚀 Server is running at http://localhost:${PORT}`);
-  });
-});
+    console.log(`Server at http://localhost:${PORT}`);
+  }
+);
+})
+;
