@@ -3,7 +3,8 @@ const express = require('express');
 const mysql = require('mysql');
 const app = express(); // create our Express app
 
-// Set up a MySQL connection pool – this lets us reuse DB connections instead of opening a new one each time
+// Set up mysql connection pool
+// this lets program reuse DB connections instead of opening a new one each time
 const db = mysql.createPool({
   host: 'localhost',
   user: 'root',
