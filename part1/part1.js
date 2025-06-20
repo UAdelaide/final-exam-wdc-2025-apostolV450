@@ -10,7 +10,7 @@ const db = mysql.createPool({
 });
 
 // Helper function for DB queries
-function queryDB(sql, params = []) {
+function queryDB(s  ql, params = []) {
   return new Promise((resolve, reject) => {
     db.query(sql, params, (err, results) => {
       if (err) return reject(err);
