@@ -96,7 +96,24 @@ async function insertTestData(){
         SET status = 'completed'
         WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Bella'), (SELECT dog_id FROM Dogs WHERE name = 'Daisy');
       `);
-      awa
+      await queryDB(`
+        INSERT INTO WalkRatings (request_id, walker_id, owner_id, rating, comments, rated_at)
+        VALUES
+          (
+            (SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Bella')),
+            (SELECT user_id FROM Users WHERE username = 'bobwalker'),
+            (SELECT owner_id FROM Dogs WHERE name = 'Bella'),
+            5, 'Excellent walk', NOW()
+          ),
+          (
+            (SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Daisy')),
+            (SELECT user_id FROM Users WHERE username = 'bobwalker'),
+            (SELECT owner_id FROM Dogs WHERE name = 'Daisy'),
+            4, 'Pretty good job', NOW()
+          )
+      `);
+    }
+
 
 // GET /api/dogs
 // This route gives us a list of all the dogs and their owners
