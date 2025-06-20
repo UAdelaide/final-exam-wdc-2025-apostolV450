@@ -85,6 +85,7 @@ app.get('/api/dogs', async (req, res) => {
 
 // GET /api/walkrequests/open
 // This route gives a list of walk requests that are still open
+// It includes the dog's name, requested time, duration, location, and owner's username
 app.get('/api/walkrequests/open', async (req, res) => {
   try {
     const results = await queryDB(`
