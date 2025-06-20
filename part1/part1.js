@@ -31,8 +31,7 @@ function queryDB(sql, params = []) {
 
 // This function inserts sample data into the database when the server starts
 // Im just doing what I saw in the starthere app.js file
-async function insertTestData()
-{
+async function insertTestData(){
   try {
     // Only add test users if there aren't any yet
     const users = await queryDB('SELECT COUNT(*) AS count FROM Users');
