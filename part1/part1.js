@@ -82,7 +82,10 @@ async function insertTestData(){
     console.error('Couldnt insert test data:', err.message);
   }
 
-
+ const applications = await queryDB('SELECT COUNT(*) AS count FROM WalkApplications');
+    if (applications[0].count === 0) {
+      await queryDB(`
+        INSERT INTO WalkApplications (request_id, walker_id, status) VALUES
 
 // GET /api/dogs
 // This route gives us a list of all the dogs and their owners
