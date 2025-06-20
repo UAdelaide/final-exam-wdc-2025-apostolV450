@@ -74,6 +74,8 @@ async function insertTestData()
         ((SELECT dog_id FROM Dogs WHERE name = 'Buddy'), '2025-06-12 14:00:00', 20, 'Greenwood Trail', 'open'),
         ((SELECT dog_id FROM Dogs WHERE name = 'Daisy'), '2025-06-13 15:00:00', 40, 'Riverbend Walk', 'cancelled')
       `);
+
+
     }
 
   } catch (err) {
@@ -95,6 +97,7 @@ app.get('/api/dogs', async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch dogs', details: err.message });
   }
+
 });
 
 // GET /api/walkrequests/open
@@ -114,6 +117,7 @@ app.get('/api/walkrequests/open', async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch open walk requests', details: err.message });
   }
+
 });
 
 // GET /api/walkers/summary
