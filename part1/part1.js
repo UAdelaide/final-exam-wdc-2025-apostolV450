@@ -31,7 +31,8 @@ function queryDB(sql, params = []) {
 
 // This function inserts sample data into the database when the server starts
 // Im just doing what I saw in the starthere app.js file
-async function insertTestData(){
+async function insertTestData()
+{
   try {
     // Only add test users if there aren't any yet
     const users = await queryDB('SELECT COUNT(*) AS count FROM Users');
@@ -77,44 +78,11 @@ async function insertTestData(){
 
     }
 
-
-
- const applications = await queryDB('SELECT COUNT(*) AS count FROM WalkApplications');
-    if (applications[0].count === 0) {
-      await queryDB(`
-        INSERT INTO WalkApplications (request_id, walker_id, status) VALUES
-        ((SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Bella')),
-           (SELECT user_id FROM Users WHERE username = 'bobwalker'), NOW(), 'accepted'),
-          ((SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Daisy')),
-           (SELECT user_id FROM Users WHERE username = 'bobwalker'), NOW(), 'accepted')
-      `);
-      await queryDB(`
-        UPDATE WalkRequests
-        SET status = 'completed'
-        WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Bella'), (SELECT dog_id FROM Dogs WHERE name = 'Daisy');
-      `);
-      await queryDB(`
-        INSERT INTO WalkRatings (request_id, walker_id, owner_id, rating, comments, rated_at)
-        VALUES
-          (
-            (SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Bella')),
-            (SELECT user_id FROM Users WHERE username = 'bobwalker'),
-            (SELECT owner_id FROM Dogs WHERE name = 'Bella'),
-            5, 'Excellent walk', NOW()
-          ),
-          (
-            (SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Daisy')),
-            (SELECT user_id FROM Users WHERE username = 'bobwalker'),
-            (SELECT owner_id FROM Dogs WHERE name = 'Daisy'),
-            4, 'Pretty good job', NOW()
-          )
-      `);
-    }
-  }catch (err) {
-    console.error('Error inserting test data:', err.message);
+  } catch (err) {
+    // If there's an error inserting test data, log it but don't crash the server
+    console.error('Couldnt insert test data:', err.message);
   }
 }
-
 
 // GET /api/dogs
 // This route gives us a list of all the dogs and their owners
