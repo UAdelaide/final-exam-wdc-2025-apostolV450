@@ -84,9 +84,10 @@ async function insertTestData(){
 
 const applications = await queryDB('SELECT COUNT(*) AS count FROM WalkApplications');
   if (applications[0].count === 0) {
-    await queryDB(
+    await queryDB('
       
-    )
+
+      ')
 }
 
 // GET /api/dogs
