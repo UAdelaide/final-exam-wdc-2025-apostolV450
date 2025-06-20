@@ -64,7 +64,7 @@ async function insertTestData() {
 
   } catch (err) {
     // This will catch anything that goes wrong during the insert process
-    console.error('⚠️ Error inserting test data:', err.message);
+    console.error('Couldnt insert test data:', err.message);
   }
 }
 
