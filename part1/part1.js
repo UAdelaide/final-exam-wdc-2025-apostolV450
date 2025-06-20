@@ -85,7 +85,13 @@ async function insertTestData(){
 const applications = await queryDB('SELECT COUNT(*) AS count FROM WalkApplications');
   if (applications[0].count === 0) {
     await queryDB('
-      
+      INSERT INTO WalkApplications (request_id, walker_id, applied_at, status)
+      VALUES
+      ((SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Bella')),
+           (SELECT user_id FROM Users WHERE username = 'bobwalker'), NOW(), 'accepted'),
+          ((SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Daisy')),
+           (SELECT user_id FROM Users WHERE username = 'bobwalker'), NOW(), 'accepted')
+
 
       ')
 }
