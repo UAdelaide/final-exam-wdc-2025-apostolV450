@@ -86,6 +86,12 @@ async function insertTestData(){
     if (applications[0].count === 0) {
       await queryDB(`
         INSERT INTO WalkApplications (request_id, walker_id, status) VALUES
+        ((SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Bella')),
+           (SELECT user_id FROM Users WHERE username = 'bobwalker'), NOW(), 'accepted'),
+          ((SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Daisy')),
+           (SELECT user_id FROM Users WHERE username = 'bobwalker'), NOW(), 'accepted')
+      `);
+      
 
 // GET /api/dogs
 // This route gives us a list of all the dogs and their owners
