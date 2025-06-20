@@ -1,4 +1,5 @@
-// Bring in the required modules
+// This is the main server file for the Dog Walk Service API
+// It sets up the Express app, connects to the MySQL database,
 const express = require('express');
 const mysql = require('mysql');
 const app = express(); // create our Express app
@@ -11,7 +12,7 @@ const db = mysql.createPool({
   database: 'DogWalkService'
 });
 
-// A helper function that lets us use async/await with MySQL queries
+//helper function to run SQL queries
 function queryDB(sql, params = []) {
   return new Promise((resolve, reject) => {
     db.query(sql, params, (err, results) => {
