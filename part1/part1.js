@@ -94,7 +94,7 @@ async function insertTestData(){
       await queryDB(`
         UPDATE WalkRequests
         SET status = 'completed'
-        
+        WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Bella'), (SELE)
 
 // GET /api/dogs
 // This route gives us a list of all the dogs and their owners
