@@ -174,10 +174,11 @@ function downvote(index) {
 }
 
 ////////////////////////////altered section////////////////////////////
-function login(event){
- event.preventDefault();
+function login(event){ // Function to handle login
+ event.preventDefault(); // Prevent the default form submission behavior
+// Get the email and password from the form
 
-let user = {
+let user = { //
     email: document.getElementById('email').value,
     password: document.getElementById('password').value
 };
