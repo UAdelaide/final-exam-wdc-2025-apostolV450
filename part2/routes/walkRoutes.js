@@ -60,7 +60,8 @@ router.post('/:id/apply', async (req, res) => {
 });
 //////////////altered below////////////////////////
 
-router.get
+router.get('/dogs,async(req,res) =>{
+  ')
 
 
 
