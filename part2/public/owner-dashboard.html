@@ -130,7 +130,10 @@
           walks,
           message,
           error,
-          submitWalkRequest
+          submitWalkRequest,
+
+
+          logout
         };
       }
     }).mount('#app');
@@ -138,7 +141,7 @@
 
 
 async function logout() { // Function to handle logout
-  try {
+  try { // Try to send a logout request
     await fetch('/api/users/logout', { // Logout endpoint
       method: 'POST' // POST request to logout
     });
