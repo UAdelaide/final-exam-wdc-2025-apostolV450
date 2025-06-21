@@ -174,11 +174,12 @@ function downvote(index) {
 }
 
 ////////////////////////////altered section////////////////////////////
-function login(){
+function login(event){
+ event.preventDefault();
 
     let user = {
-        user: document.getElementById('username').value,
-        pass: document.getElementById('password').value
+        email: document.getElementById('username').value,
+        password: document.getElementById('password').value
     };
 
     // Create AJAX Request
