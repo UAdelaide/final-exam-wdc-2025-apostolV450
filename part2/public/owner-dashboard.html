@@ -101,7 +101,7 @@
 async function loadMyDogs() { // Function to load the owner's dogs
           try {
             const res = await fetch('/api/walks/dogs');     // Fetch the list of dogs for the owner
-            if (!res.ok) throw new Error('Could not display dogs');
+            if (!res.ok) throw new Error('Could not display dogs'); //  Check if the response is OK
             myDogs.value = await res.json();
           } catch (err) {
             error.value = err.message;
