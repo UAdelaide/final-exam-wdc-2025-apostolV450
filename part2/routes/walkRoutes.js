@@ -62,7 +62,8 @@ router.post('/:id/apply', async (req, res) => {
 
 router.get('/dogs,async(req,res) =>{
   const user = req.session?.user;
-  if()
+  if(!user) return res.sendStatus(401);
+  
 
 
 
