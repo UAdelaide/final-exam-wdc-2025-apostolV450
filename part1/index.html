@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Dog of the Day</title>
+  <!-- Vue 3 CDN -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <style>
+    /* basic body styling */
     body{
       font-size: smaller;
       font-family:'Times New Roman', Times, serif;
@@ -13,40 +15,45 @@
       margin: 0;
       display: flex;
     }
-        .sidebar {
-        width: 100px;
-        background-color: #ff0000;
-        height: 100vh;
-        overflow-y: auto;
-        }
-        .rightbar {
-        width: 100px;
-        background-color: #ff0000;
-        height: 100vh;
-        overflow-y: auto;
-        }
-        .main-content {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        position: relative;
-        background-color: rgb(0, 182, 0);
-        color: rgb(255, 0, 21);
-        }
+    /* sidebar on left */
+    .sidebar {
+      width: 100px;
+      background-color: #ff0000;
+      height: 100vh;
+      overflow-y: auto;
+    }
+    /* sidebar on right */
+    .rightbar {
+      width: 100px;
+      background-color: #ff0000;
+      height: 100vh;
+      overflow-y: auto;
+    }
+    /* main content area */
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      background-color: rgb(0, 182, 0);
+      color: rgb(255, 0, 21);
+    }
+    /* main heading */
     h1 {
       font-size: 2rem;
       color: red;
     }
+    /* dog card styling (broken color, oops) */
     .dog-card {
-      background: rgb(0, 252, 4)55, 0, 0);
+      background: rgb(0, 252, 4)55, 0, 0); /* typo here */
       padding: 1rem;
       max-width: 400px;
       text-align: center;
       margin-top: 2rem;
       position: relative;
     }
-
+    /* placeholder for dog image */
     .placeholder {
       background-color: #1aff00;
       width: 100%;
@@ -54,15 +61,13 @@
       border-radius: 8px;
       margin-bottom: 1rem;
     }
-
-
-
+    /* dog image styling */
     img {
       max-width: 100%;
       border-radius: 8px;
       margin-bottom: 1rem;
     }
-
+    /* dropdowns for fetch dog button */
     .outer-dropdown, .middle-dropdown, .inner-dropdown {
       position: fixed;
       bottom: 10px;
@@ -77,7 +82,7 @@
       margin-top: 10px;
       background: red;
     }
-
+    /* dropdown toggle button */
     .dropdown-toggle {
       cursor: pointer;
       font-weight: bold;
@@ -88,12 +93,14 @@
       padding: 5px;
       width: 100%;
     }
- .confirm-section {
+    /* confirm section for checkbox */
+    .confirm-section {
       margin-top: 8px;
       display: flex;
       align-items: center;
       gap: 6px;
     }
+    /* fetch dog button */
     .fetch-button {
       margin-top: 10px;
       background: red;
@@ -102,8 +109,8 @@
       padding: 5px 10px;
       cursor: pointer;
     }
-
-.link-box, .img-box {
+    /* link and image boxes in sidebars */
+    .link-box, .img-box {
       background: red;
       padding: 8px;
       border: 1px solid red
@@ -117,6 +124,7 @@
       color: rgb(0, 191, 0);
       text-decoration: underline;
     }
+    /* top and bottom nav links */
     .top-links, .bottom-links {
       width: 100%;
       text-align: center;
@@ -128,8 +136,8 @@
       color: rgb(0, 201, 0);
       font-weight: bold;
     }
-
-.popup{
+    /* popup styling */
+    .popup{
       position: fixed;
       background-color: green;
       border: 2px solid red;
@@ -139,7 +147,8 @@
       max-width: 250px;
       box-shadow: 2px 2px 8px red;
     }
-.popup-close{
+    /* close button for popups */
+    .popup-close{
       position: absolute;
       top: 2px;
       right: 5px;
@@ -150,12 +159,10 @@
       color: red;
     }
   </style>
-
 </head>
 
-
-
 <body>
+  <!-- left sidebar with links and text -->
   <div class="sidebar">
     <div class="link-box"><a href="https://youtu.be/c0-hvjV2A5Y?si=Fvf8B6HyBiRyAbom">fredagain boiler room</a></div>
     <div class="text-box" style="background:red; color:rgb(0, 212, 0); padding:8px; margin-bottom:10px;">Never realised before dating a military guy how often they are away, I havent seen him for a month bc the government are being annoying</div>
@@ -165,36 +172,39 @@
     <div class="text-box" style="background:green; color:red; padding:8px; margin-bottom:10px;">1979 Khuzsestan and the subsequent 1980's Iranian Embassy Siege in London is actually a perfect yet esoteric example of the cyclical nature human insecurity perpetrates from root cause to transnational terroristic violence, and how by implementing human security root cause frameworks such as the CHS framework, R2P, or Andrej Zwitter's proposed derivative threats model, can help prevent this</div>
     <div class="link-box"><a href="https://youtu.be/PLUZDtJCdDM?si=yjZ5AnEJUszePfxB">i hijacked a car and this is what i found in the CD player</a></div>
   </div>
+  <!-- main content area, Vue app root -->
   <div class="main-content" id="app">
+    <!-- top nav links -->
     <div class="top-links">
       <a href="#">NEWS</a> | <a href="#">SPACE</a> | <a href="#">GAMERS</a>
     </div>
+    <!-- main heading -->
     <h1 style="font-weight: 100; letter-spacing: 1px;">Dog of the Day</h1>
     <h2 style="font-weight: 100; letter-spacing: 0.1px;">graphic design is my passion</h2>
+    <!-- dog card, shows image or placeholder -->
     <div class="dog-card">
       <div v-if="!dogImage" class="placeholder"></div>
       <img v-if="dogImage" :src="dogImage" alt="A random dog image" />
     </div>
-
+    <!-- dropdowns for fetching dog image -->
     <div class="outer-dropdown">
       <button class="dropdown-toggle" @click="showMiddle = !showMiddle">X</button>
       <div v-show="showMiddle" class="middle-dropdown">
         <button class="dropdown-toggle" @click="showInner = !showInner">x</button>
         <div v-show="showInner" class="inner-dropdown">
           <div class="confirm-section">
-                    <input type="checkbox" id="confirmFetch" v-model="confirmFetch">
-                    <label for="confirmFetch">See the dog</label>
-                </div>
-                <button class="fetch-button" :disabled="!confirmFetch" @click="fetchDog">x</button>
-                </div>
+            <input type="checkbox" id="confirmFetch" v-model="confirmFetch">
+            <label for="confirmFetch">See the dog</label>
+          </div>
+          <button class="fetch-button" :disabled="!confirmFetch" @click="fetchDog">x</button>
+        </div>
       </div>
-
-
     </div>
-
+    <!-- bottom nav links -->
     <div class="bottom-links">
       <a href="#">YOUTUBE</a> | <a href="#">COMMUNITY</a> | <a href="#">BEST BUY</a>
     </div>
+    <!-- popups, looped with v-for -->
     <div
       v-for="(popup, index) in popups"
       :key="index"
@@ -204,83 +214,81 @@
       {{ popup.message }}
       <button class="popup-close" @click="closePopup(index)">✖</button>
     </div>
-
   </div>
+  <!-- right sidebar with links and text -->
   <div class="rightbar">
     <div class="img-box">I am Arthur, king of the Britons</div>
     <div class="link-box"><a href="https://youtu.be/D5Df191WJ3o">King of the who? The Britons.</a></div>
     <div class="text-box" style="background-color:green; color:red; padding:8px; margin-bottom:10px;">Didn’t know we had a king. I thought we were an autonomous collective.</div>
     <div class="link-box"><a href="https://youtu.be/D5Df191WJ3o">Listen. Strange women lying in ponds distributing swords is no basis for a system of government. Supreme executive power derives from a mandate from the masses, not from some farcical aquatic ceremony.</a></div>
-
-
     <div class="text-box" style="background-color:green; color:red; padding:8px; margin-bottom:10px;">You can’t expect to wield supreme executive power just ’cause some watery tart threw a sword at you!</div>
     <div class="link-box"><a href="https://youtu.be/D5Df191WJ3o">I mean, if I went around saying I was an emperor just because some moistened bint had lobbed a scimitar at me, they’d put me away!</a></div>
   </div>
 
   <script>
+    // grab createApp from Vue
     const { createApp } = Vue;
 
     createApp({
       data()
       {
+        // main state for app
         return {
-          dogImage: '',
-          showMiddle: false,
-          showInner: false,
-          confirmFetch: false,
-          popups: []
+          dogImage: '', // url for dog image
+          showMiddle: false, // show middle dropdown
+          showInner: false, // show inner dropdown
+          confirmFetch: false, // checkbox for fetch
+          popups: [] // array of popup objects
         };
- },
-     methods: {
+      },
+      methods: {
+        // fetch random dog image from API
         fetchDog() {
           fetch('https://dog.ceo/api/breeds/image/random')
             .then(res => res.json())
             .then(data => {
-              this.dogImage = data.message;
-              this.confirmFetch = false;
-              this.showMiddle = false;
+              this.dogImage = data.message; // set image
+              this.confirmFetch = false; // reset checkbox
+              this.showMiddle = false; // close dropdowns
               this.showInner = false;
             }
-        );
+          );
         },
-
-
-
+        // close popup at index
         closePopup(index) {
           this.popups.splice(index, 1);
         },
+        // schedule popups to appear randomly
         schedulePopups() {
           const messages = [
-                        "This website actually gives clues to the location of a buried golden hare that has never been found.",
-                        "The 999th visitor to this site will receive a free horse.",
-                        "The song 'Pop Muzik' was played five times in a row at the funeral of director Stanley Kubrick.",
-                        "If you isolate each individual pixel in these popups and arrange them in a circle, it unlocks a cheat mode that allows you to pass through solid surfaces at will.",
-                        "To continue the same man as you have been up to now, to be torn apart and defiled in this life you live, is just senseless self-preservation like that of half-eaten gladiators who, mauled all over and covered in blood by the wild beasts, still plead to be kept alive for the next day, when in their same state they will meet again those same claws and teeth. Launch yourself, then, on these few claims. If you can stay within them, stay there like a man translated to some paradise, the Islands of the Blest. But if you feel yourself falling away and losing control, retire in good heart to some corner where you will regain control - or else make a complete exit from life, not in anger, but simply, freely, with integrity, making this leaving of it at least one achievement in your life."
-
-                    ];
+            // weird trivia and nonsense
+            "This website actually gives clues to the location of a buried golden hare that has never been found.",
+            "The 999th visitor to this site will receive a free horse.",
+            "The song 'Pop Muzik' was played five times in a row at the funeral of director Stanley Kubrick.",
+            "If you isolate each individual pixel in these popups and arrange them in a circle, it unlocks a cheat mode that allows you to pass through solid surfaces at will.",
+            "To continue the same man as you have been up to now, to be torn apart and defiled in this life you live, is just senseless self-preservation like that of half-eaten gladiators who, mauled all over and covered in blood by the wild beasts, still plead to be kept alive for the next day, when in their same state they will meet again those same claws and teeth. Launch yourself, then, on these few claims. If you can stay within them, stay there like a man translated to some paradise, the Islands of the Blest. But if you feel yourself falling away and losing control, retire in good heart to some corner where you will regain control - or else make a complete exit from life, not in anger, but simply, freely, with integrity, making this leaving of it at least one achievement in your life."
+          ];
+          // create a popup at random position
           const createRandomPopup = () => {
             const msg = messages[Math.floor(Math.random() * messages.length)];
             const top = Math.floor(Math.random() * (window.innerHeight - 100));
             const left = Math.floor(Math.random() * (window.innerWidth - 250));
             this.popups.push({ message: msg, top, left });
           };
-
- const loopPopups = () => {
+          // loop to keep making popups
+          const loopPopups = () => {
             createRandomPopup();
-            const next = Math.random() * 5000 + 5000;
+            const next = Math.random() * 5000 + 5000; // 5-10s
             setTimeout(loopPopups, next);
           };
-
           loopPopups();
         }
       },
       mounted() {
+        // start popups when app mounts
         this.schedulePopups();
       }
     }).mount('#app');
   </script>
-
-
 </body>
-
 </html>
