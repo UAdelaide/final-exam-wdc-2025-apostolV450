@@ -194,7 +194,12 @@ fetch ('/api/users/login',{
 })
 .then(res => res.json())
 .then(data => {
-    if()
+    if(data.user){
+        if (data.user.role === 'owner'){
+
+            wind
+        }
+    }
 )
     // Create AJAX Request
     var xmlhttp = new XMLHttpRequest();
