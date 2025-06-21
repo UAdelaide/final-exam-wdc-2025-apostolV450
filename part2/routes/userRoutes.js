@@ -63,5 +63,11 @@ req.session.user=rows[0]; // Store user info in session
     res.status(500).json({ error: 'Login failed' });
   }
 });
+////////////////////////////////////////////
+  router.post('/logout', (req, res) =>
+    {
+  req.session?.destroy(()=> res.clearCookie('connect.sid').sendStatus(200));
+});
+////////////////////////////////////////////////////
 
 module.exports = router;
