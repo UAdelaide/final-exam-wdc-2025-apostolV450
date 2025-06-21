@@ -1,6 +1,6 @@
 const express = require('express');
 ////////////////
-const session = require('express-session');
+const session = require('express-session'); // Import express-session
 ///////////////////////////
 const path = require('path');
 require('dotenv').config();
@@ -14,8 +14,8 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 /////////////////////////////////
 
-app.use(session({
-  secret: 'supersecret',
+app.use(session({ // Configure session middleware
+  secret: 'supersecret', 
   resave: false,
   saveUninitialized: true
 
