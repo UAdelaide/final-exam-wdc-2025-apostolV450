@@ -47,7 +47,14 @@
         const message = ref('');
         const error = ref('');
         const user = await getCurrentUser(); // Fetch the current user details
-if (!user) return alert('Youre not logged in')
+if (!user) return alert('Youre not logged in'); // If no user, alert and stop execution
+ method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ walker_id: user.user_id })
+});
+
+
+
         async function loadWalkRequests() {
           try {
             const res = await fetch('/api/walks');
