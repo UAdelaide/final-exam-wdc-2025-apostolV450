@@ -206,22 +206,23 @@ fetch ('/api/users/login',{ // Send a POST request to the server
             window.location.href = 'owner-dashboard.html'; // Redirect to the owner dashboard
 
         } else if (data.user.role === 'walker'){ // Check if the user is a walker
-            window.location.href = 'walker-dashboard.html';
+            window.location.href = 'walker-dashboard.html'; // Redirect to the walker dashboard
 
         }
     } else{
 
-        alert(data.error||'Login didnt work');
+        alert(data.error||'Login didnt work'); // Show an error message if the login failed
     }
 })
-.catch(err => alert('Error'));
+.catch(err => alert('Error')); // Show an error message if there was an error with the request
 }
 
 
 
-function logout(){
+function logout(){ // Function to handle logout
+// Send a POST request to the server to log out the user
 fetch('/user/logout', {
-    method:'POST',
+    method:'POST', // Specify the method as POST
 });
 
 }
