@@ -62,14 +62,14 @@ async function getCurrentUser() // Fetch the current user details
 
 {
   try {
-    const res = await fetch('/api/users/me');
+    const res = await fetch('/api/users/me'); // Send a GET request to the user endpoint
 
-    if (!res.ok) throw new Error('Failed to get current user');
+    if (!res.ok) throw new Error('Failed to get current user'); // Check if the response is OK
     return await res.json();
   } catch (err)
   {
 
-    console.error('Error fetching user:', err);
+    console.error('Error fetching user:', err); //  Log any errors that occur during the fetch
     return null;
   }
 
