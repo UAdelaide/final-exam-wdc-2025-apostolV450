@@ -81,7 +81,7 @@
           try { // Send a POST request to the logout endpoint
             await fetch('/api/users/logout', { method: 'POST' });
             window.location.href = 'index.html';
-          } catch (err) {
+          } catch (err) { // Handle any errors during logout
             alert('Logout failed');
           }
         }
