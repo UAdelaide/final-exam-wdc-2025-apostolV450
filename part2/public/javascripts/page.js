@@ -217,7 +217,7 @@ fetch ('/api/users/login',{ // Send a POST request to the server
 .catch(err => alert('Error')); // Show an error message if there was an error with the request
 }
 
-
+//////////////////altered below/////////////////////
 
 function logout(){ // Function to handle logout
 // Send a POST request to the server to log out the user
