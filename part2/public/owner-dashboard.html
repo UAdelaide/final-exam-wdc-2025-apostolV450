@@ -24,9 +24,9 @@
 
 
 
-            <label class = "form-label">Select Your Dog</label>
-            <select v-model = "form.dog_id" class="form-select" required>
-            <option disabled value="">✓-- Choose a Dog --</option>
+            <label class = "form-label">Select Your Dog</label> <!-- Dropdown for selecting a dog -->
+            <select v-model = "form.dog_id" class="form-select" required> <!-- v-model binds the selected dog to form.dog_id -->
+            <option disabled value="">✓-- Choose a Dog --</option> <!-- Placeholder option -->
             <option v-for = "dog in myDogs": value = "dog.dog_id">{{ dog.name }}    </option>
             </select>
 
