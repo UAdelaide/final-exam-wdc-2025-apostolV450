@@ -205,7 +205,7 @@ fetch ('/api/users/login',{
         }
     } else{
 
-        alert
+        alert(data.error||'Didnt work');
     }
 )
     // Create AJAX Request
