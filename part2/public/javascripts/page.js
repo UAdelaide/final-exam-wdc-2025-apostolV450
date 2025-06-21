@@ -181,7 +181,13 @@ function login(event){
         email: document.getElementById('username').value,
         password: document.getElementById('password').value
     };
-fetch ('/api/users')
+fetch ('/api/users/login',{
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(user)
+})
     // Create AJAX Request
     var xmlhttp = new XMLHttpRequest();
 
