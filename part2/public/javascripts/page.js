@@ -183,8 +183,12 @@ function login(event){
     };
 fetch ('/api/users/login',{
     method: 'POST',
-    headers: {
+    headers:
+    {
+
         'Content-Type': 'application/json'
+
+
     },
     body: JSON.stringify(user)
 })
