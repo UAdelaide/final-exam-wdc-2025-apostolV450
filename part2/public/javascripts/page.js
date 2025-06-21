@@ -178,17 +178,18 @@ function login(event){ // Function to handle login
  event.preventDefault(); // Prevent the default form submission behavior
 // Get the email and password from the form
 
-let user = { //
-    email: document.getElementById('email').value,
-    password: document.getElementById('password').value
+let user = {
+    email: document.getElementById('email').value, // Get the email from the form
+    password: document.getElementById('password').value // Get the password from the form
 };
 
-fetch ('/api/users/login',{
+fetch ('/api/users/login',{ // Send a POST request to the server
+    // Specify the URL to send the request to
     method: 'POST',
     headers:
     {
 
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json' //
 
 
     },
