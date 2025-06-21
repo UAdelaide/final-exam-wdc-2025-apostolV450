@@ -70,7 +70,7 @@ router.get('/dogs,async(req,res) =>{
       res.sendStatus(500);
 
     }
-  
+  })
 
 
 
