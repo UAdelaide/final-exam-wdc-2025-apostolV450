@@ -54,10 +54,7 @@ CREATE TABLE WalkRatings (
     CONSTRAINT unique_rating_per_walk UNIQUE (request_id)
 );
 
--- Seed data for demo purposes
+
 INSERT INTO Dogs (dog_id, owner_id, name, size) VALUES
 (1, 1, 'Buddy', 'medium'),
-(2, 1, 'Lucy', 'small'),
-(3, 3, 'Rocky', 'large'),
-(4, 3, 'Daisy', 'medium'),
-(5, 3, 'Milo', 'small');
+(2, 1, 'Lucy', 'small');
