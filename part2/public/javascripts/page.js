@@ -178,7 +178,7 @@ function login(event){
  event.preventDefault();
 
 let user = {
-    username: document.getElementById('username').value,
+    username: document.getElementById('username').value, // changed from 'email' to 'username'
     password: document.getElementById('password').value
 };
 
@@ -186,10 +186,7 @@ fetch ('/api/users/login',{
     method: 'POST',
     headers:
     {
-
         'Content-Type': 'application/json'
-
-
     },
     body: JSON.stringify(user)
 })
@@ -197,15 +194,11 @@ fetch ('/api/users/login',{
 .then(data => {
     if(data.user){
         if (data.user.role === 'owner'){
-
             window.location.href = 'owner-dashboard.html';
-
         } else if (data.user.role === 'walker'){
             window.location.href = 'walker-dashboard.html';
-
         }
     } else{
-
         alert(data.error||'Login didnt work');
     }
 })
