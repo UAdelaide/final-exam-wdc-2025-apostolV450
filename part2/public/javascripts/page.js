@@ -178,7 +178,7 @@ function login(event){
  event.preventDefault();
 
 let user = {
-    email: document.getElementById('email').value,
+    username: document.getElementById('email').value,
     password: document.getElementById('password').value
 };
 
