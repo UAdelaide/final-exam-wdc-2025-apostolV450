@@ -15,8 +15,8 @@ app.use(express.static(path.join(__dirname, '/public')));
 /////////////////////////////////
 
 app.use(session({ // Configure session middleware
-  secret: 'supersecret', 
-  resave: false,
+  secret: 'imhungryrn', // Secret key for signing the session ID cookie
+  resave: false, // Don't save session if unmodified
   saveUninitialized: true
 
 }));
