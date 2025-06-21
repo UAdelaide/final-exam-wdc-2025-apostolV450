@@ -221,7 +221,7 @@ fetch ('/api/users/login',{ // Send a POST request to the server
 
 function logout(){ // Function to handle logout
 // Send a POST request to the server to log out the user
-fetch('/api/logout', {
+fetch('/api/users/logout', {
     method:'POST', // Specify the method as POST
 });
 
