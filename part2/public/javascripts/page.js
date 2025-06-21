@@ -197,7 +197,7 @@ fetch ('/api/users/login',{
     if(data.user){
         if (data.user.role === 'owner'){
 
-            wind
+            window.location.href = 'owner-dashboard.html';
         }
     }
 )
