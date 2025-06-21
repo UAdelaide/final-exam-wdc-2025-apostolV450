@@ -63,7 +63,9 @@ router.post('/:id/apply', async (req, res) => {
 router.get('/dogs,async(req,res) =>{
   const user = req.session?.user;
   if(!user) return res.sendStatus(401);
-  try{ const [dog]}
+  try{ const [dogs] = await db.query(
+    'SELECT dog_id, name FROM '
+  )}
 
 
 
