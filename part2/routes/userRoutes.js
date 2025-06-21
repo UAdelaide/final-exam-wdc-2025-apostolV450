@@ -52,6 +52,17 @@ router.post('/login', async (req, res) => {
     if (rows.length === 0) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
+
+
+
+    ////////////////////////////
+
+  router.post('/logout', (req, res) => {
+  req.session?.destroy(() => res.clearCookie('connect.sid').sendStatus(200));
+});
+
+
+    //////////////////////////
 /////////////////////
 req.session.user=rows[0]; // Store user info in session
 //////////////////////
