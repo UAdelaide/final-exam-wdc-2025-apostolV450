@@ -54,7 +54,11 @@ CREATE TABLE WalkRatings (
     CONSTRAINT unique_rating_per_walk UNIQUE (request_id)
 );
 
---------------altered 
+
+
+
+
+--------------altered to do the dog drop down menu -------------------------
 INSERT INTO Dogs (dog_id, owner_id, name, size) VALUES
 (1, 1, 'Buddy', 'medium'),
 (2, 1, 'Lucy', 'small');
