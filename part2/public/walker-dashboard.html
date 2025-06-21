@@ -77,8 +77,8 @@
           }
         }
 
-        async function logout() {
-          try {
+        async function logout() { // Logout the user
+          try { // Send a POST request to the logout endpoint
             await fetch('/api/users/logout', { method: 'POST' });
             window.location.href = 'index.html';
           } catch (err) {
