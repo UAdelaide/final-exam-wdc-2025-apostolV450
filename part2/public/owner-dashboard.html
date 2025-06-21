@@ -149,17 +149,6 @@
 
 
 
-async function logout() { // Function to handle logout
-  try { // Try to send a logout request
-    await fetch('/api/users/logout', { // Logout endpoint
-      method: 'POST' // POST request to logout
-    });
-    window.location.href = 'index.html'; // Redirect after logout
-  } catch (err) { // Error handling
-    alert('Logout failed'); // Alert if logout fails
-  }
-}
-
 
 
 
