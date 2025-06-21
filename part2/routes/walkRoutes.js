@@ -61,6 +61,8 @@ router.post('/:id/apply', async (req, res) => {
 //////////////altered below////////////////////////
 
 router.get('/dogs,async(req,res) =>{
+  const user = req.session?.user;
+  if()
 
 
 
