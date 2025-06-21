@@ -101,7 +101,8 @@
 async function loadMyDogs() {
           try {
             const res = await fetch('/api/walks/dogs');
-            if (!res.ok) throw new Error('');
+            if (!res.ok) throw new Error('Could not display dogs');
+            m
 
 
 
