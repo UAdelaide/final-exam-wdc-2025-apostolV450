@@ -11,14 +11,7 @@
   <div id="app" class="container py-4">
     <h1 class="mb-4 text-primary">Owner Dashboard</h1>
 
-
-
-    <button @click="logout" class = "btn btn-danger mb-3 float-end">Logout</button>
-
-
-
-
-
+    <button @click="logout" class="btn btn-danger mb-3 float-end">Logout</button>
 
     <!-- Walk request form -->
     <div class="card mb-4">
@@ -31,12 +24,6 @@
             <label class="form-label">Dog ID</label>
             <input v-model="form.dog_id" type="number" class="form-control" required>
           </div>
-
-
-
-
-
-
           <div class="mb-3">
             <label class="form-label">Requested Date & Time</label>
             <input v-model="form.requested_time" type="datetime-local" class="form-control" required>
@@ -130,6 +117,15 @@
           }
         }
 
+        async function logout() {
+          try {
+            await fetch('/api/users/logout', { method: 'POST' });
+            window.location.href = 'index.html';
+          } catch (err) {
+            alert('Logout failed');
+          }
+        }
+
         onMounted(() => {
           loadWalks();
         });
@@ -140,35 +136,10 @@
           message,
           error,
           submitWalkRequest,
-
-
-          logout  // Altered to include the logout function
+          logout
         };
       }
     }).mount('#app');
-
-
-
-async function logout() { // Function to handle logout
-  try { // Try to send a logout request
-    await fetch('/api/users/logout', { // Logout endpoint
-      method: 'POST' // POST request to logout
-    });
-    window.location.href = 'index.html'; // Redirect after logout
-  } catch (err) { // Error handling
-    alert('Logout failed'); // Alert if logout fails
-  }
-}
-
-
-
-
-
-
-
-
-
-
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
