@@ -198,13 +198,14 @@ fetch ('/api/users/login',{ // Send a POST request to the server
 
 // Handle the response from the server
 .then(res => res.json())
-.then(data => { // Parse the JSON response from the server
+.then(data => { //parse the JSON response from the server
+    // Check if the user is logged in successfully
     if(data.user){
         if (data.user.role === 'owner'){
 
-            window.location.href = 'owner-dashboard.html';
+            window.location.href = 'owner-dashboard.html'; // Redirect to the owner dashboard
 
-        } else if (data.user.role === 'walker'){
+        } else if (data.user.role === 'walker'){ // Check if the user is a walker
             window.location.href = 'walker-dashboard.html';
 
         }
