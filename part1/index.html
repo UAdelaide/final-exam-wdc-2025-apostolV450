@@ -261,7 +261,7 @@
         // schedule popups to appear randomly
         schedulePopups() {
           const messages = [
-            // weird trivia and nonsense
+            // I had fun writing these
             "This website actually gives clues to the location of a buried golden hare that has never been found.",
             "The 999th visitor to this site will receive a free horse.",
             "The song 'Pop Muzik' was played five times in a row at the funeral of director Stanley Kubrick.",
@@ -278,7 +278,7 @@
           // loop to keep making popups
           const loopPopups = () => {
             createRandomPopup();
-            const next = Math.random() * 5000 + 5000; // 5-10s
+            const next = Math.random() * 5000+5000; // 5-10s
             setTimeout(loopPopups, next);
           };
           loopPopups();
