@@ -173,7 +173,7 @@ function downvote(index) {
     updatePosts();
 }
 
-
+////////////////////////////altered section////////////////////////////
 function login(){
 
     let user = {
