@@ -198,7 +198,8 @@ fetch ('/api/users/login',{
         if (data.user.role === 'owner'){
 
             window.location.href = 'owner-dashboard.html';
-        }
+
+        } else if (data.user.role === 'walker'){
     }
 )
     // Create AJAX Request
