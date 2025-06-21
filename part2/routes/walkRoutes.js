@@ -60,7 +60,7 @@ router.post('/:id/apply', async (req, res) => {
 });
 //////////////altered below////////////////////////
 
-router.get('/dogs,async(req,res) =>{
+router.get('/dogs',async(req,res) =>{
   const user = req.session?.user;
   if(!user) return res.sendStatus(401);
   try{ const [dogs] = await db.query(
