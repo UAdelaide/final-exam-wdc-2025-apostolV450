@@ -173,7 +173,7 @@ function downvote(index) {
     updatePosts();
 }
 
-////////////////////////////altered section////////////////////////////
+
 function login(event){ // Function to handle login
  event.preventDefault(); // Prevent the default form submission behavior
 // Get the email and password from the form
