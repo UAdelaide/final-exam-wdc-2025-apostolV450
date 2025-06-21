@@ -54,9 +54,12 @@ CREATE TABLE WalkRatings (
     CONSTRAINT unique_rating_per_walk UNIQUE (request_id)
 );
 
+------------- sample users (so that the ids match the dog owner references------------)
 
-
-
+INSERT INTO Users (user_id, username, email, password_hash, role)
+VALUES
+(1, 'ownerJane', 'jane@example.com', 'hashedpassword1', 'owner'),
+(3, 'ownerBob', 'bob@example.com', 'hashedpassword2', 'owner');
 
 --------------altered to do the dog drop down menu -------------------------
 INSERT INTO Dogs (dog_id, owner_id, name, size) VALUES
