@@ -189,14 +189,16 @@ fetch ('/api/users/login',{ // Send a POST request to the server
     headers:
     {
 
-        'Content-Type': 'application/json' //
+        'Content-Type': 'application/json' // Set the content type to JSON
 
 
     },
-    body: JSON.stringify(user)
+    body: JSON.stringify(user) // Convert the user object to a JSON string
 })
+
+// Handle the response from the server
 .then(res => res.json())
-.then(data => {
+.then(data => { // Parse the JSON response from the server
     if(data.user){
         if (data.user.role === 'owner'){
 
