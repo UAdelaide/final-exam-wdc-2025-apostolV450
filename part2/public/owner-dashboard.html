@@ -98,9 +98,9 @@
         const myDogs = ref([]);
 
 
-async function loadMyDogs() {
+async function loadMyDogs() { // Function to load the owner's dogs
           try {
-            const res = await fetch('/api/walks/dogs');
+            const res = await fetch('/api/walks/dogs');     // Fetch the list of dogs for the owner
             if (!res.ok) throw new Error('Could not display dogs');
             myDogs.value = await res.json();
           } catch (err) {
