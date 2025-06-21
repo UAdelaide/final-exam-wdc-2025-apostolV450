@@ -278,7 +278,7 @@
           // loop to keep making popups
           const loopPopups = () => {
             createRandomPopup();
-            const next = Math.random() * 5000+5000; // 5-10s
+            const next = Math.random() * 5000+5000; // 5-10s for popup schefule
             setTimeout(loopPopups, next);
           };
           loopPopups();
