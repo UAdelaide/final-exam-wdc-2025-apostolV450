@@ -192,6 +192,8 @@ fetch ('/api/users/login',{
     },
     body: JSON.stringify(user)
 })
+.then(res => res.json())
+
     // Create AJAX Request
     var xmlhttp = new XMLHttpRequest();
 
