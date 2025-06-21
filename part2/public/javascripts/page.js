@@ -214,6 +214,7 @@ fetch ('/api/users/login',{
 
 
 function logout(){
-fetch('/user')
-
+fetch('/user/logout', {
+    method:'POST'
+}
 }
