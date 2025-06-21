@@ -207,7 +207,10 @@ fetch ('/api/users/login',{
 
         alert(data.error||'Login didnt work');
     }
-}) .catch(err => alert('Error'))
+}) .catch(err => alert('Error'));
+}
+
+///////////////////////////////////altered above////////////////////
 
 
     // Create AJAX Request
