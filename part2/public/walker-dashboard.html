@@ -46,17 +46,7 @@
         const walks = ref([]);
         const message = ref('');
         const error = ref('');
-        const user = await getCurrentUser(); // Fetch the current user details
-if (!user) return alert('Youre not logged in'); // If no user, alert and stop execution
-
-const res = await fetch(`/api/walks/${requestId}/apply`,
-{
-method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ walker_id: user.user_id })
-});
-
-
+        const user = 3;
 
         async function loadWalkRequests() {
           try {
@@ -67,32 +57,6 @@ method: 'POST',
             error.value = err.message;
           }
         }
-
-async function getCurrentUser() // Fetch the current user details
-
-{
-  try {
-    const res = await fetch('/api/users/me'); // Send a GET request to the user endpoint
-
-    if (!res.ok) throw new Error('Failed to get current user'); // Check if the response is OK
-    return await res.json();
-  } catch (err)
-  {
-
-    console.error('Error fetching user:', err); //  Log any errors that occur during the fetch
-    return null;
-  }
-
-
-}
-
-
-
-
-
-
-
-
 
         async function applyToWalk(requestId) {
           try {
