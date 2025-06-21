@@ -193,7 +193,9 @@ fetch ('/api/users/login',{
     body: JSON.stringify(user)
 })
 .then(res => res.json())
-
+.then(data => {
+    if()
+)
     // Create AJAX Request
     var xmlhttp = new XMLHttpRequest();
 
