@@ -200,6 +200,12 @@ fetch ('/api/users/login',{
             window.location.href = 'owner-dashboard.html';
 
         } else if (data.user.role === 'walker'){
+            window.location.href = 'walker-dashboard.html';
+
+        }
+    } else{
+
+        alert
     }
 )
     // Create AJAX Request
