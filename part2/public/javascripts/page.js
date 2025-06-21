@@ -207,9 +207,9 @@ fetch ('/api/users/login',{
 
         alert(data.error||'Login didnt work');
     }
-})
+}) .catch(err => alert('Error'))
 
-)
+
     // Create AJAX Request
     var xmlhttp = new XMLHttpRequest();
 
